@@ -1,8 +1,7 @@
 class ArticlesController < ApplicationController
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body, :tag_list)
   end
-  
   
   def index
     @articles = Article.all
