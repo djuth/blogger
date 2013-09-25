@@ -5,7 +5,14 @@
     <%= link_to tag.name, tag_path(tag) %>
   <% end %>
 </p>
-<p><%= @article.body %></p>
+<% if @article.image.exists? %>
+  <p>
+    <%= image_tag @article.image.url %>
+  </p>
+<% end %>
+<p>
+  <%= @article.body %>
+</p>
 <br /><br />
 <%= link_to "Edit", edit_article_path(@article) %>
 <%= link_to "Delete", @article, method: :delete, data: {confirm: "Are you sure you want to delete this article?"} %>
